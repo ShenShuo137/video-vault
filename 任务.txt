@@ -1,0 +1,149 @@
+Video Vault 项目完整任务说明
+📋 项目背景
+这是一个基于Serverless架构的企业会议视频智能安全平台作业任务。学生拥有华为云代金券，需要在华为云平台上实现这个项目。
+
+🎯 项目核心目标
+Video Vault 旨在解决企业会议视频的两大安全风险：
+
+无心之失：员工在会议演示中不小心展示敏感信息（AWS Key、数据库密码、身份证号等）
+恶意泄密：内部人员将会议录像下载后泄露给竞争对手
+通过构建**"双重安全防线"**实现企业会议视频安全闭环：
+
+第一道防线：DLP视觉防火墙（事前防护）
+自动识别视频中的敏感信息（sk-xxx格式的OpenAI Key、AWS Key、AccessKey、数据库密码、身份证号、手机号等）
+使用OCR识别 + 正则匹配算法精准定位
+对敏感区域进行高斯模糊/马赛克处理
+记录审计日志到数据库
+第二道防线：Watermark数字DNA（事后溯源）
+为每个下载者的视频副本植入频域暗水印（类似数字DNA）
+使用DCT/DFT变换将用户ID嵌入视频频谱中
+水印不可见，不影响视频画质
+视频泄露后可通过水印提取精准追溯到下载者身份
+🏗️ Serverless架构设计（四阶段流程）
+阶段1：触发与切片（Fan-out分布式启动）
+触发机制：
+
+方式1：用户手动上传会议录像到OBS
+方式2：通过Zoom Webhook自动回调获取会议视频
+预处理：
+
+将长视频（如1小时）按时间切片成60个1分钟片段
+存储到华为云对象存储OBS
+为后续并行处理奠定基础
+阶段2：并行处理层（核心计算双引擎）
+函数组1：DLP扫描与脱敏（DLP Workers）
+
+输入：OBS中的视频切片
+处理流程：
+提取关键帧（每秒1帧）
+OCR识别文字内容
+正则匹配敏感信息（sk-xxx、AKIA、密码、身份证等）
+生成智能遮罩层进行高斯模糊
+记录审计日志到GaussDB/RDS
+输出：脱敏后的视频帧
+函数组2：频域水印嵌入（Watermark Workers）
+
+输入：视频切片 + 下载者唯一身份ID
+处理流程：
+对视频帧进行DCT/DFT变换
+将用户ID嵌入频域
+逆变换生成含水印视频
+输出：带有隐藏水印的视频帧
+特点：支持动态水印（每个下载者ID不同）
+阶段3：渲染与合成层（Fan-in生成最终文件）
+使用FFmpeg合并所有处理后的切片
+生成最终MP4文件（既脱敏又含水印）
+上传到OBS并返回下载链接
+阶段4：数据层（OpenGauss/RDS支撑）
+审计表（audit_logs）：
+
+记录每次敏感信息拦截情况
+字段：video_id, sensitive_type, detected_time, frame_id, status等
+视频元数据表（videos）：
+
+记录视频信息和处理状态
+字段：video_id, title, upload_time, status, output_url等
+溯源表（watermark_mapping）：
+
+存储水印ID与用户映射关系
+字段：watermark_id, user_id, user_name, download_time等
+🤖 AI Agent功能（核心亮点）
+AI Agent扮演"首席安全官（CISO）"角色，提供智能查询能力：
+
+场景1：安全审计（防御侧）
+用户提问： "上周的架构评审会，有没有泄露敏感数据？"
+
+AI Agent回复：
+
+查询审计数据库
+生成报告：检测到3次数据库密码、1次AccessKey
+说明：已自动脱敏处理，未造成实质泄露
+提供处理前后对比图
+场景2：泄密溯源（追责侧）
+用户提问： "这个泄露的视频是谁下载的？"
+
+AI Agent回复：
+
+调用水印提取函数
+解析频域暗水印得到用户ID
+查询溯源表获取真实身份
+返回：后端组-李四于11月25日14:00下载
+AI Agent工具集
+query_audit_logs：查询敏感信息审计记录
+get_video_status：查询视频处理状态
+list_sensitive_videos：列出高风险视频
+extract_watermark：提取泄露视频的水印
+💻 技术栈与华为云服务
+华为云服务
+FunctionGraph：Serverless函数计算核心
+OBS：对象存储服务（存储视频和切片）
+GaussDB/RDS MySQL：关系型数据库（审计和溯源数据）
+OCR服务：文字识别
+Pangu大模型：AI Agent智能对话（可选，或用简化版）
+API Gateway：API接入
+开发技术栈
+语言：Python 3.11（学生使用conda的sag环境）
+视频处理：OpenCV, FFmpeg
+OCR：Pytesseract, 华为云OCR API
+图像处理：Pillow, NumPy
+数据库：PyMySQL
+SDK：华为云Python SDK全家桶
+配置管理：python-dotenv
+敏感信息检测规则（正则表达式）
+python
+SENSITIVE_PATTERNS = {
+    'openai_key': r'sk-[A-Za-z0-9]{48}',
+    'aws_key': r'AKIA[0-9A-Z]{16}',
+    'huawei_ak': r'[A-Z0-9]{20}',
+    'password': r'password[:\s=]+\S+',
+    'id_card': r'\d{17}[\dXx]',
+    'phone': r'1[3-9]\d{9}'
+}
+📐 项目实施策略
+当前选择：MVP + AI Agent
+学生决定先实现最小可行版本（MVP）但必须包含AI Agent，具体包括：
+
+核心功能：
+
+✅ 视频上传和切片
+✅ OCR识别 + 正则匹配检测敏感信息
+✅ 给敏感区域打马赛克/高斯模糊
+✅ 视频合并输出
+✅ 审计日志记录到数据库
+✅ AI Agent智能查询（安全审计 + 泄密溯源）
+进阶功能（时间允许再做）：
+
+频域暗水印嵌入与提取（需要DSP知识）
+动态水印（每个下载者ID不同）
+完整的Web前端界面
+🛠️ 开发环境配置
+学生当前环境
+已开通华为云账号（有代金券）
+本地有conda Python环境
+python_3_9：之前跑模型用，受CUDA版本限制
+sag (Python 3.11)：无CUDA依赖，选用此环境
+调用云端模型不需要本地CUDA
+开发模式
+本地开发和测试：在本地编写代码，使用本地文件测试功能
+云端部署：将函数打包上传到华为云FunctionGraph
+云端运行：实际处理在云端执行，充分利用Serverless并行能力

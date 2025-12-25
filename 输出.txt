@@ -1,0 +1,32 @@
+===== 开始上传视频到OBS =====
+obs-client.js:50 文件名: test_video.mp4
+obs-client.js:51 文件大小: 2091917 bytes
+obs-client.js:52 视频ID: 1766585481149-test_video
+obs-client.js:53 对象键: uploads/1766585481149-test_video.mp4
+obs-client.js:54 目标桶: video-vault-storage
+obs-client.js:72 [OBS] ✅ 上传成功!
+obs-client.js:73 [OBS] ETag: undefined
+obs-client.js:74 [OBS] 现在等待OBS触发器启动 video-vault-slicer 云函数
+Upload.vue:131 ===== 上传完成，开始追踪云函数处理 =====
+Upload.vue:132 视频ID: 1766585481149-test_video
+Upload.vue:133 OBS对象键: uploads/1766585481149-test_video.mp4
+Upload.vue:134 等待OBS触发器启动云函数...
+Upload.vue:146 
+[轮询 1/60] 检查处理状态...
+obs-client.js:92 [OBS] 检查视频处理状态: 1766585481149-test_video
+obs-client.js:100 [OBS] 正在检查输出文件: outputs/1766585481149-test_video_sanitized.mp4
+video-vault-storage.…deo_sanitized.mp4:1 
+ 
+ Failed to load resource: the server responded with a status of 404 (Not Found)
+obs-client.js:106 [OBS] getObjectMetadata 回调 - err: null , result: exists
+obs-client.js:169 [OBS] ✅ 输出文件已生成: outputs/1766585481149-test_video_sanitized.mp4
+10
+obs-client.js:301 
+ 处理审计日志失败: TypeError: Failed to execute 'readAsText' on 'FileReader': parameter 1 is not of type 'Blob'.
+    at obs-client.js:299:18
+    at _callback (obs.js:607:3)
+    at utils.js:1904:4
+    at doLog (utils.js:1365:3)
+    at Utils.getRequest (utils.js:1444:10)
+    at utils.js:1737:9
+(匿名)	@	obs-client.js:301

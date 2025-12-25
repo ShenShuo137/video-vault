@@ -1,0 +1,54 @@
+pm run dev
+
+> frontend@0.0.0 dev
+> vite
+
+You are using Node.js 20.18.0. Vite requires Node.js version 20.19+ or 22.12+. Please upgrade your Node.js version.
+file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/binding-DkT6owYZ.mjs:492
+                if (loadErrors.length > 0) throw new Error("Cannot find native binding. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.", { cause: loadErrors.reduce((err, cur) => {
+                                                 ^
+
+Error: Cannot find native binding. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at src/binding.cjs (file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/binding-DkT6owYZ.mjs:492:36)
+    at file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/binding-DkT6owYZ.mjs:6:49
+    ... 2 lines matching cause stack trace ...
+    at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+    at async CAC.<anonymous> (file:///D:/video-vault/frontend/node_modules/vite/dist/node/cli.js:570:27) {
+  [cause]: Error: Cannot find module '@rolldown/binding-win32-x64-msvc'
+  Require stack:
+  - D:\video-vault\frontend\node_modules\rolldown\dist\shared\binding-DkT6owYZ.mjs
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1225:15)
+      ... 2 lines matching cause stack trace ...
+      at require (node:internal/modules/helpers:179:18)
+      at requireNative (file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/binding-DkT6owYZ.mjs:133:21)
+      at src/binding.cjs (file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/binding-DkT6owYZ.mjs:461:18)
+      at file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/binding-DkT6owYZ.mjs:6:49
+      at file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/parse-ast-index-w6oTGOhH.mjs:42:22
+      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'D:\\video-vault\\frontend\\node_modules\\rolldown\\dist\\shared\\binding-DkT6owYZ.mjs'
+    ],
+    cause: Error: Cannot find module './rolldown-binding.win32-x64-msvc.node'
+    Require stack:
+    - D:\video-vault\frontend\node_modules\rolldown\dist\shared\binding-DkT6owYZ.mjs
+        at Module._resolveFilename (node:internal/modules/cjs/loader:1225:15)
+        at Module._load (node:internal/modules/cjs/loader:1051:27)
+        at Module.require (node:internal/modules/cjs/loader:1311:19)
+        at require (node:internal/modules/helpers:179:18)
+        at requireNative (file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/binding-DkT6owYZ.mjs:128:12)
+        at src/binding.cjs (file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/binding-DkT6owYZ.mjs:461:18)
+        at file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/binding-DkT6owYZ.mjs:6:49
+        at file:///D:/video-vault/frontend/node_modules/rolldown/dist/shared/parse-ast-index-w6oTGOhH.mjs:42:22
+        at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+        at async ModuleLoader.import (node:internal/modules/esm/loader:473:24) {
+      code: 'MODULE_NOT_FOUND',
+      requireStack: [
+        'D:\\video-vault\\frontend\\node_modules\\rolldown\\dist\\shared\\binding-DkT6owYZ.mjs'
+      ]
+    }
+  }
+}
+
+Node.js v20.18.0

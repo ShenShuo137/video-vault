@@ -1,0 +1,288 @@
+{
+  "video_id": "adb7d23b-335a-44db-9ef9-3b8deca49645",
+  "video_title": "test_video.mp4",
+  "total_detections": 20,
+  "detections": [
+    {
+      "slice_index": 0,
+      "frame_id": 0,
+      "timestamp": 0.0,
+      "type": "aws_key",
+      "text": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE",
+      "confidence": 0.9999,
+      "bbox": {
+        "x": 95,
+        "y": 302,
+        "width": 736,
+        "height": 37
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 0,
+      "timestamp": 0.0,
+      "type": "huawei_ak",
+      "text": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE",
+      "confidence": 0.9999,
+      "bbox": {
+        "x": 95,
+        "y": 302,
+        "width": 736,
+        "height": 37
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 1,
+      "timestamp": 1.0,
+      "type": "aws_key",
+      "text": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE",
+      "confidence": 0.9999,
+      "bbox": {
+        "x": 95,
+        "y": 302,
+        "width": 735,
+        "height": 37
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 1,
+      "timestamp": 1.0,
+      "type": "huawei_ak",
+      "text": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE",
+      "confidence": 0.9999,
+      "bbox": {
+        "x": 95,
+        "y": 302,
+        "width": 735,
+        "height": 37
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 2,
+      "timestamp": 2.0,
+      "type": "aws_key",
+      "text": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE",
+      "confidence": 0.9999,
+      "bbox": {
+        "x": 95,
+        "y": 302,
+        "width": 735,
+        "height": 37
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 2,
+      "timestamp": 2.0,
+      "type": "huawei_ak",
+      "text": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE",
+      "confidence": 0.9999,
+      "bbox": {
+        "x": 95,
+        "y": 302,
+        "width": 735,
+        "height": 37
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 3,
+      "timestamp": 3.0,
+      "type": "aws_key",
+      "text": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE",
+      "confidence": 0.9999,
+      "bbox": {
+        "x": 95,
+        "y": 302,
+        "width": 735,
+        "height": 37
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 3,
+      "timestamp": 3.0,
+      "type": "huawei_ak",
+      "text": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE",
+      "confidence": 0.9999,
+      "bbox": {
+        "x": 95,
+        "y": 302,
+        "width": 735,
+        "height": 37
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 4,
+      "timestamp": 4.0,
+      "type": "huawei_ak",
+      "text": "sk-abcd1234efgh5678ijkl9012mnop3456qrst7890uvwx",
+      "confidence": 0.9807,
+      "bbox": {
+        "x": 94,
+        "y": 300,
+        "width": 881,
+        "height": 44
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 4,
+      "timestamp": 4.0,
+      "type": "huawei_ak",
+      "text": "sk-abcd1234efgh5678ijkl9012mnop3456qrst7890uvwx",
+      "confidence": 0.9807,
+      "bbox": {
+        "x": 94,
+        "y": 300,
+        "width": 881,
+        "height": 44
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 5,
+      "timestamp": 5.0,
+      "type": "huawei_ak",
+      "text": "sk-abcd1234efgh5678ijkl9012mnop3456qrst7890uvwx",
+      "confidence": 0.9807,
+      "bbox": {
+        "x": 94,
+        "y": 300,
+        "width": 881,
+        "height": 44
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 5,
+      "timestamp": 5.0,
+      "type": "huawei_ak",
+      "text": "sk-abcd1234efgh5678ijkl9012mnop3456qrst7890uvwx",
+      "confidence": 0.9807,
+      "bbox": {
+        "x": 94,
+        "y": 300,
+        "width": 881,
+        "height": 44
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 6,
+      "timestamp": 6.0,
+      "type": "huawei_ak",
+      "text": "sk-abcd1234efgh5678ijkl9012mnop3456qrst7890uvwx",
+      "confidence": 0.9807,
+      "bbox": {
+        "x": 94,
+        "y": 300,
+        "width": 881,
+        "height": 44
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 6,
+      "timestamp": 6.0,
+      "type": "huawei_ak",
+      "text": "sk-abcd1234efgh5678ijkl9012mnop3456qrst7890uvwx",
+      "confidence": 0.9807,
+      "bbox": {
+        "x": 94,
+        "y": 300,
+        "width": 881,
+        "height": 44
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 7,
+      "timestamp": 7.0,
+      "type": "password",
+      "text": "DB_PASSWORD=SuperSecret123!",
+      "confidence": 0.9996,
+      "bbox": {
+        "x": 96,
+        "y": 462,
+        "width": 517,
+        "height": 41
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 8,
+      "timestamp": 8.0,
+      "type": "password",
+      "text": "DB_PASSWORD=SuperSecret123!",
+      "confidence": 0.9996,
+      "bbox": {
+        "x": 96,
+        "y": 462,
+        "width": 517,
+        "height": 41
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 9,
+      "timestamp": 9.0,
+      "type": "id_card",
+      "text": "ID Card: 110101199001011234",
+      "confidence": 0.9868,
+      "bbox": {
+        "x": 95,
+        "y": 298,
+        "width": 513,
+        "height": 41
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 9,
+      "timestamp": 9.0,
+      "type": "phone",
+      "text": "ID Card: 110101199001011234",
+      "confidence": 0.9868,
+      "bbox": {
+        "x": 95,
+        "y": 298,
+        "width": 513,
+        "height": 41
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 9,
+      "timestamp": 9.0,
+      "type": "credit_card",
+      "text": "ID Card: 110101199001011234",
+      "confidence": 0.9868,
+      "bbox": {
+        "x": 95,
+        "y": 298,
+        "width": 513,
+        "height": 41
+      }
+    },
+    {
+      "slice_index": 0,
+      "frame_id": 9,
+      "timestamp": 9.0,
+      "type": "phone",
+      "text": "Phone: 13800138000",
+      "confidence": 0.9763,
+      "bbox": {
+        "x": 97,
+        "y": 381,
+        "width": 348,
+        "height": 36
+      }
+    }
+  ],
+  "processed_at": "2025-12-23T23:00:39.391944"
+}
